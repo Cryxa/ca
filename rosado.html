@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 40px 20px;
+      background: #f4f4f4;
+    }
+
+    audio {
+      width: 100%;
+      max-width: 400px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <h2 id="mensaje">Rosado</h2>
+  <audio id="audio" controls autoplay preload="auto">
+    <source src="rosado.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    const audio = document.getElementById("audio");
+    const mensaje = document.getElementById("mensaje");
+
+    async function reproducirAudio() {
+      try {
+        await audio.play();
+        mensaje.textContent = "Reproduciendo audio...";
+      } catch (error) {
+        mensaje.textContent =
+          "Rosado";
+        console.log("Reproducción automática bloqueada:", error.name);
+      }
+    }
+
+    audio.addEventListener("canplay", reproducirAudio, {
+      once: true
+    });
+
+    window.addEventListener("load", reproducirAudio);
+  </script>
+</body>
+</html>
