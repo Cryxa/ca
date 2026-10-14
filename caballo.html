@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title></title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -14,40 +14,57 @@
       background: #f4f4f4;
     }
 
+    h1 {
+      color: #333;
+    }
+
+    .contenedor {
+      max-width: 450px;
+      margin: 0 auto;
+    }
+
+    .audio-box {
+      background: white;
+      padding: 20px;
+      margin: 15px 0;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px #00000015;
+    }
+
+    .audio-box h2 {
+      font-size: 20px;
+      margin-top: 0;
+    }
+
     audio {
       width: 100%;
-      max-width: 400px;
-      margin-top: 20px;
     }
   </style>
 </head>
 
 <body>
-  <h2 id="mensaje">Caballo</h2>
-  <audio id="audio" controls autoplay preload="auto">
-    <source src="caballo.mp3" type="audio/mpeg">
-  </audio>
 
-  <script>
-    const audio = document.getElementById("audio");
-    const mensaje = document.getElementById("mensaje");
+  <h1>Caballo</h1>
 
-    async function reproducirAudio() {
-      try {
-        await audio.play();
-        mensaje.textContent = "Reproduciendo audio...";
-      } catch (error) {
-        mensaje.textContent =
-          "Caballo";
-        console.log("Reproducción automática bloqueada:", error.name);
-      }
-    }
+  <div class="contenedor">
 
-    audio.addEventListener("canplay", reproducirAudio, {
-      once: true
-    });
+    <div class="audio-box">
+      <h2>Audio caballo</h2>
+      <audio controls preload="none">
+        <source src="caballo.mp3" type="audio/mpeg">
+        Tu navegador no admite audio HTML.
+      </audio>
+    </div>
 
-    window.addEventListener("load", reproducirAudio);
-  </script>
+    <div class="audio-box">
+      <h2>Sonido caballo</h2>
+      <audio controls preload="none">
+        <source src="s_caballo.mpeg" type="audio/mpeg">
+        Tu navegador no admite audio HTML.
+      </audio>
+    </div>
+
+  </div>
+
 </body>
 </html>
